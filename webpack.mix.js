@@ -11,8 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.copy('resources/assets/js/scripts', 'public/assets/js/scripts')
-    .copy('resources/assets/css/app.min.css', 'public/assets/css')
+mix.copy('resources/assets/css/app.min.css', 'public/assets/css')
+    .copy('resources/assets/js/scripts', 'public/assets/js/scripts')
+    .copy('resources/assets/js/app.min.js', 'public/assets/js')
     .copy('resources/assets/vendor', 'public/assets/vendor')
     .js('resources/assets/js/app.js', 'public/assets/js')
     .sass('resources/assets/sass/app.scss', 'public/assets/css')
