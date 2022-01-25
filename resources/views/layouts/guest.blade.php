@@ -17,6 +17,8 @@
     @yield('head')
   </head>
   <body>
+    <x-sweetalert/>
+    
     @yield('content')
 
     @yield('scripts')
