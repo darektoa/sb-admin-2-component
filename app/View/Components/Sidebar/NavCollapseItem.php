@@ -14,6 +14,7 @@ class NavCollapseItem extends Component
 
     public function __construct($active, $icon, $name, $routes)
     {
+        $routes         = htmlspecialchars_decode($routes);
         $this->active   = $this->activeClassName($active);
         $this->icon     = $icon;
         $this->name     = $name;
