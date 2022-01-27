@@ -1,1 +1,0 @@
-<x-alert :value="$value" class="alert-info border-left-info" />
