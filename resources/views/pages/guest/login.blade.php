@@ -34,7 +34,7 @@
                                 @endif
 
                                 <x-form action="/login" class="user">
-                                    <x-input.email    name="username" placeholder="Email" class="form-control-user" value="{{ old('email') }}" required />
+                                    <x-input.email    name="email" placeholder="Email" class="form-control-user" value="{{ old('email') }}" required />
                                     <x-input.password name="password" placeholder="Password" class="form-control-user" required />
                                     <x-input.checkbox name="remember" label="Remember Me" />
                                     <x-button.submit  value="Login" class="btn-primary btn-user btn-block"/>
