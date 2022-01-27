@@ -18,13 +18,13 @@
       active="{{ Request::is('dashboard') }}"
       icon="fa-tachometer-alt"
       name="Dashboard" 
-      route="{{ url('/dashboard') }}" />
+      :route="url('/dashboard')" />
   
     <x-sidebar.nav-collapse-item
       active="{{ Request::is('coins') }}"
       icon="fa-clipboard-list"
       name="Transactions"
-      routes="{{ json_encode($transactionNav) }}" />  
+      :routes="$transactionNav" />  
   
     <x-sidebar.divider mb="4"/>
     
