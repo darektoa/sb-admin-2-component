@@ -27,4 +27,9 @@ class User extends Authenticatable
     public function sendTransactions() {
         return $this->hasMany(Transaction::class, 'sender_id');
     }
+
+
+    public function receiveTransactions() {
+        return $this->hasMany(Transaction::class, 'receiver_id');
+    }
 }
