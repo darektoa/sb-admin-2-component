@@ -22,4 +22,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+
+    public function sendTransactions() {
+        return $this->hasMany(Transaction::class, 'sender_id');
+    }
 }
