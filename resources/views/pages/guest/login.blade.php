@@ -25,27 +25,25 @@
                         <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                         <div class="col-lg-6">
                             <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">{{ __('Login') }}</h1>
-                                </div>
+                                <x-text value="Login" class="h4 text-gray-900 mb-4 text-center"/>
 
                                 @if($errors->any())
                                 <x-alert color="danger" :value="$errors" />
                                 @endif
 
                                 <x-form action="/login" class="user">
-                                    <x-input.email    name="email" placeholder="Email" class="form-control-user" value="{{ old('email') }}" required />
+                                    <x-input.email    name="email" placeholder="Email" value="{{ old('email') }}" class="form-control-user" required />
                                     <x-input.password name="password" placeholder="Password" class="form-control-user" required />
                                     <x-input.checkbox name="remember" label="Remember Me" />
                                     <x-button.submit  value="Login" class="btn-primary btn-user btn-block"/>
                                 </x-form>
 
                                 @if(Route::has('password.request'))
-                                <x-link :href="route('password.request')" value="Forgot Password" center />
+                                <x-text :href="route('password.request')" value="Forgot Password" class="text-center" />
                                 @endif
 
                                 @if (Route::has('register'))
-                                <x-link :href="route('register')" value="Create an Account!" center />
+                                <x-text :href="route('register')" value="Create an Account!" class="text-center" />
                                 @endif
                             </div>
                         </div>
