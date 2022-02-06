@@ -39,11 +39,11 @@
                                 </x-form>
 
                                 @if(Route::has('password.request'))
-                                <x-text :href="route('password.request')" value="Forgot Password" class="text-center" />
+                                <x-text :href="route('password.request')" value="Forgot Password" class="mb-3 text-center" />
                                 @endif
 
                                 @if (Route::has('register'))
-                                <x-text :href="route('register')" value="Create an Account!" class="text-center" />
+                                <x-text :href="route('register')" value="Create an Account!" class="mb-3 text-center" />
                                 @endif
                             </div>
                         </div>
