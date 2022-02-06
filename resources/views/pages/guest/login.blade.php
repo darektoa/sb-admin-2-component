@@ -25,7 +25,7 @@
                         <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                         <div class="col-lg-6">
                             <div class="p-5">
-                                <x-text value="Login" class="h4 text-gray-900 mb-4 text-center"/>
+                                <x-text value="Login" color="gray-900" class="h4 mb-4 text-center"/>
 
                                 @if($errors->any())
                                 <x-alert color="danger" :value="$errors" />
