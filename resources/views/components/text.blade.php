@@ -5,6 +5,7 @@
     $class          = $attributes['class'];
     $italic         = $attributes['italic'];
     $bold           = $attributes['bold'];
+    $color          = $attributes['color'];
     $underline      = $attributes['underline'];
     $strikethrough  = $attributes['strikethrough'];
     $decoration     = '';
@@ -14,6 +15,7 @@
     if(!$inline) $attributes['class']       = "d-block mb-0 $class";
     if($italic) $attributes['class']       .= ' font-italic';
     if($bold) $attributes['class']         .= ' font-weight-bold';
+    if($color) $attributes['class']        .= " text-$color";
     if($underline) $decoration             .= ' underline';
     if($strikethrough) $decoration         .= ' line-through';
     if($decoration) $attributes['style']    = "text-decoration:$decoration";
@@ -24,6 +26,8 @@
         $attributes['italic'],
         $attributes['bold'],
         $attributes['underline'],
+        $attributes['strikethrough'],
+        $attributes['color'],
     );
 @endphp
 
