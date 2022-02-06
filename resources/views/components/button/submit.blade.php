@@ -1,13 +1,18 @@
 @php
-    $class  = $attributes['class'];
-    $color  = $attributes['color'] ?? 'primary';
-    $value  = $attributes['value'];
+    $class      = $attributes['class'];
+    $color      = $attributes['color'] ?? 'primary';
+    $value      = $attributes['value'];
+    $outline    = $attributes['outline'];
     
-    if($color) $attributes['class'] = "btn btn-$color";
+    $attributes['class'] = "btn $class";
+
+    if(!$outline) $attributes['class'] .= " btn-$color";
+    if($outline) $attributes['class']  .= " btn-outline-$color";
 
     unset(
         $attributes['color'],
         $attributes['value'],
+        $attributes['outline'],
     );
 @endphp
 
