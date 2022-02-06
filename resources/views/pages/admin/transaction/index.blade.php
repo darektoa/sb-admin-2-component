@@ -1,5 +1,6 @@
 <x-layout app>
-    @section('title', 'Transactions')
+    <x-layout.section title="Transactions" />
+    
     <div class="col-lg-12 mb-4 p-0">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex align-items-center">
