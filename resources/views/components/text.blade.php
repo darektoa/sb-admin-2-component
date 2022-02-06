@@ -11,7 +11,7 @@
 
     if($attributes['href']) $tag            = 'a';
     if($attributes['inline']) $inline       = true;
-    if(!$inline) $attributes['class']       = "d-block $class";
+    if(!$inline) $attributes['class']       = "d-block mb-0 $class";
     if($italic) $attributes['class']       .= ' font-italic';
     if($bold) $attributes['class']         .= ' font-weight-bold';
     if($underline) $decoration             .= ' underline';
