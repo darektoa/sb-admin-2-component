@@ -9,6 +9,6 @@
             class="custom-control-input"
             name="{{ $attributes['name'] }}"
             {{ $attributes['checked'] }}>
-        <label class="custom-control-label" for="{{ $id }}">{{ __($label) }}</label>
+        <label class="custom-control-label" for="{{ $id }}">{{ __($attributes['label']) }}</label>
     </div>
 </div>
