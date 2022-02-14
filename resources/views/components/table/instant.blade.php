@@ -19,7 +19,10 @@
         $visible = collect(explode('|', $visible));
         $visible = $visible->map(fn($item) => explode(':', $item, 2));
         $visible = $visible->pluck(1, 0);
-    }    
+    }
+    
+    // DEFAULT HIDDEN
+    $hidden->push('id');
     
     // DATA ATTRIBUTE
     $data = $data->map(function($item) use($hidden, $visible){
