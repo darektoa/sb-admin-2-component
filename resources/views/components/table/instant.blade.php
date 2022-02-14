@@ -1,12 +1,21 @@
 @php
     use Illuminate\Database\Eloquent\Model;
 
-    $data   = collect($attributes['data']);
-    $hidden = explode('|', $attributes['hidden']);
+    $data    = collect($attributes['data']);
+    $hidden  = collect(explode('|', $attributes['hidden']));
+    $visible = collect(explode('|', $attributes['visible']));
+    $visible = $visible->map(fn($item) => explode(':', $item, 2));
+    $visible = $visible->pluck(1, 0);
     
-    $data = $data->map(function($item) use($hidden){
-        if($item instanceof Model) $item = $item->makeHidden($hidden);
-        else $item = (object) collect($item)->except($hidden)->toArray();
+    $data = $data->map(function($item) use($hidden, $visible){
+        if($item instanceof Model) {
+            $item = $item->makeHidden($hidden->all());
+            $item = $item->makeVisible($visible->keys());
+        }else {
+            $visible = $visible->keys();
+            $hidden  = $hidden->reject(fn($item) => $visible->contains($item));
+            $item    = (object) collect($item)->except($hidden)->toArray();
+        }
         return $item;
     });
     
