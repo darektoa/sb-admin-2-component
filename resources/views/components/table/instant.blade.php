@@ -28,7 +28,7 @@
         <tr>
 
             @foreach($keys as $key)
-            <th>{{ Str::headline($key) }}</th>
+            <th>{{ Str::headline($visible[$key] ?? $key) }}</th>
             @endforeach
 
         </tr>
