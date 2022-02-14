@@ -9,26 +9,11 @@
             </x-form>
         </x-card.head>
         <x-card.body>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Code</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    @foreach ($transactions as $transaction)
-                    <tr>
-                        <td class="align-middle h6">{{ $transaction->receiver->name }}</td>
-                        <td class="align-middle h6">{{ $transaction->code }}</td>
-                        <td class="align-middle h6">{{ number_format($transaction->amount) }}</td>
-                    </tr>
-                    @endforeach
+            <x-table.instant 
+                :data="$transactions->items()"
+                hidden="updated_at"
+                visible="created_at:created on" />
 
-                </tbody>
-            </table>
             {{ $transactions->links() }}
         </x-card.body>
     </x-card>
