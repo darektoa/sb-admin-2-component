@@ -2,20 +2,33 @@
     use Illuminate\Database\Eloquent\Model;
 
     $data    = collect($attributes['data']);
-    $hidden  = collect(explode('|', $attributes['hidden']));
-    $visible = collect(explode('|', $attributes['visible']));
-    $visible = $visible->map(fn($item) => explode(':', $item, 2));
-    $visible = $visible->pluck(1, 0);
+    $hidden  = $attributes['hidden'];
+    $visible = $attributes['visible'];
+
+    // HIDDEN ATTRIBUTE
+    if(gettype($hidden) === 'array') $hidden = collect($hidden);
+    else $hidden  = collect(explode('|', $hidden));
+
+    // VISIBLE ATTRIBUTE 
+    if(gettype($visible) === 'array') {
+        $visible = collect($visible);
+        $visible = $visible->mapWithKeys(fn($item, $key) => (
+            (gettype($key) === 'integer') ? [$item => null] : [$key => $item]
+        ));
+    }else {
+        $visible = collect(explode('|', $visible));
+        $visible = $visible->map(fn($item) => explode(':', $item, 2));
+        $visible = $visible->pluck(1, 0);
+    }    
     
+    // DATA ATTRIBUTE
     $data = $data->map(function($item) use($hidden, $visible){
-        if($item instanceof Model) {
-            $item = $item->makeHidden($hidden->all());
-            $item = $item->makeVisible($visible->keys());
-        }else {
-            $visible = $visible->keys();
-            $hidden  = $hidden->reject(fn($item) => $visible->contains($item));
-            $item    = (object) collect($item)->except($hidden)->toArray();
-        }
+        $visible = $visible->keys();
+        $hidden  = $hidden->reject(fn($item) => $visible->contains($item));
+
+        if($item instanceof Model) $item = $item->makeHidden($hidden->all());
+        else $item = (object) collect($item)->except($hidden)->toArray();
+
         return $item;
     });
     
