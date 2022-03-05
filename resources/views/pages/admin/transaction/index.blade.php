@@ -3,8 +3,8 @@
     <x-card class="mb-4">
         <x-card.head>
             <x-text bold color="primary" value="Transactions" />
-            <x-form inline method="GET" class="ml-auto d-none d-md-flex">
-                <x-input name="search" placeholder="Search..." value="{{ request()->search ?? '' }}" class="mr-2"/>
+            <x-form method="GET" class="ms-auto d-none d-md-flex">
+                <x-input name="search" placeholder="Search..." value="{{ request()->search ?? '' }}" class="me-2"/>
                 <x-button.submit outline value="Search" />
             </x-form>
         </x-card.head>
