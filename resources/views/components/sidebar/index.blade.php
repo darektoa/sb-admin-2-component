@@ -20,7 +20,7 @@
       name="Dashboard" 
       :route="url('/dashboard')" />
   
-    <x-sidebar.nav-collapse-item
+    <x-sidebar.collapse-item
       active="{{ Request::is('coins') }}"
       icon="fa-clipboard-list"
       name="Transactions"
