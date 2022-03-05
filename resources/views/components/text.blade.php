@@ -12,9 +12,9 @@
 
     if($attributes['href']) $tag            = 'a';
     if($attributes['inline']) $inline       = true;
-    if(!$inline) $attributes['class']       = "d-block mb-0 $class";
-    if($italic) $attributes['class']       .= ' font-italic';
-    if($bold) $attributes['class']         .= ' font-weight-bold';
+    if(!$inline) $attributes['class']       = "$class d-block mb-0";
+    if($italic) $attributes['class']       .= ' fst-italic';
+    if($bold) $attributes['class']         .= ' fw-bold';
     if($color) $attributes['class']        .= " text-$color";
     if($underline) $decoration             .= ' underline';
     if($strikethrough) $decoration         .= ' line-through';
