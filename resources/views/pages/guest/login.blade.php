@@ -3,14 +3,16 @@
 @section('head')
 <style>
     body{
-        background-color: var(--secondary);
+        height: 100vh;
+        background-color: var(--bs-primary);
         background-size: cover;
         background-position: center;
+        backdrop-filter: brightness(80%);
     }
 
     .bg-login-image{
         padding-top: 50%;
-        background-color: var(--primary);
+        background-color: var(--bs-primary);
         background-image: url("{{ asset('assets/img/background/login.svg') }}");
     }
 </style>
@@ -32,10 +34,10 @@
                                 @endif
 
                                 <x-form action="/login" class="user">
-                                    <x-input type="email" name="email" placeholder="Email" value="{{ old('email') }}" class="form-control-user" required />
-                                    <x-input type="password" name="password" placeholder="Password" class="form-control-user" required />
-                                    <x-input type="checkbox" name="remember" label="Remember Me" />
-                                    <x-button.submit value="Login" class="btn-primary btn-user btn-block"/>
+                                    <x-input type="email" name="email" placeholder="Email" value="{{ old('email') }}" class="form-control-user mb-3" required />
+                                    <x-input type="password" name="password" placeholder="Password" class="form-control-user mb-3" required />
+                                    <x-input type="checkbox" name="remember" label="Remember Me" class="mb-3" />
+                                    <x-button.submit block value="Login" class="btn-primary btn-user"/>
                                 </x-form>
 
                                 @if(Route::has('password.request'))
