@@ -16,7 +16,7 @@
   
     <x-sidebar.item
       active="{{ Request::is('dashboard') }}"
-      icon="fa-tachometer-alt"
+      icon="fa-gauge-high"
       name="Dashboard" 
       :route="url('/dashboard')" />
   
