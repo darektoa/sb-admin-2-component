@@ -2,13 +2,11 @@
     $id =  $attributes['id'] ?? Str::uuid();
 @endphp
 
-<div class="form-group {{ $attributes['class'] }}">
-    <div class="custom-control custom-checkbox small">
-        <input type="checkbox"
-            id="{{ $id }}"
-            class="custom-control-input"
-            name="{{ $attributes['name'] }}"
-            {{ $attributes['checked'] }}>
-        <label class="custom-control-label" for="{{ $id }}">{{ __($attributes['label']) }}</label>
-    </div>
+<div class="form-check {{ $attributes['class'] }}">
+    <input type="checkbox"
+        id="{{ $id }}"
+        class="form-check-input"
+        name="{{ $attributes['name'] }}"
+        {{ $attributes['checked'] }}>
+    <label class="form-check-label" for="{{ $id }}">{{ __($attributes['label']) }}</label>
 </div>
