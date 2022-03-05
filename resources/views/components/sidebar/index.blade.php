@@ -14,7 +14,7 @@
   
     <x-sidebar.divider />
   
-    <x-sidebar.nav-item
+    <x-sidebar.item
       active="{{ Request::is('dashboard') }}"
       icon="fa-tachometer-alt"
       name="Dashboard" 
