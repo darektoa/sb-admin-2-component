@@ -18,41 +18,31 @@
 </style>
 @endsection
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-xl-10 col-lg-12 col-md-9">
-            <div class="card o-hidden border-0 shadow-lg my-5">
-                <div class="card-body p-0">
-                    <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                        <div class="col-lg-6">
-                            <div class="p-5">
-                                <x-text value="Login" color="gray-900" class="h4 mb-4 text-center"/>
+<x-view main="center" cross="start" class="pt-5 p-4">
+    <x-view class="bg-white rounded-3" style="width: 900px!important">
+        <x-view class="w-50 d-none d-lg-block bg-login-image"/>
+        <x-view class="p-4 p-md-5" direction="column">
+            <x-text value="Login" color="gray-900" class="h4 mb-4 text-center"/>
 
-                                @if($errors->any())
-                                <x-alert color="danger" :value="$errors" />
-                                @endif
+            @if($errors->any())
+            <x-alert color="danger" :value="$errors" />
+            @endif
 
-                                <x-form action="/login" class="user">
-                                    <x-input type="email" name="email" placeholder="Email" value="{{ old('email') }}" class="form-control-user mb-3" required />
-                                    <x-input type="password" name="password" placeholder="Password" class="form-control-user mb-3" required />
-                                    <x-input type="checkbox" name="remember" label="Remember Me" class="mb-3" />
-                                    <x-button.submit block value="Login" class="btn-primary btn-user"/>
-                                </x-form>
+            <x-form action="/login" class="user">
+                <x-input type="email" name="email" placeholder="Email" value="{{ old('email') }}" class="form-control-user mb-3" required />
+                <x-input type="password" name="password" placeholder="Password" class="form-control-user mb-3" required />
+                <x-input type="checkbox" name="remember" label="Remember Me" class="mb-3" />
+                <x-button.submit block value="Login" class="btn-primary btn-user"/>
+            </x-form>
 
-                                @if(Route::has('password.request'))
-                                <x-text :href="route('password.request')" value="Forgot Password" class="mb-3 text-center" />
-                                @endif
+            @if(Route::has('password.request'))
+            <x-text :href="route('password.request')" value="Forgot Password" class="mb-3 text-center" />
+            @endif
 
-                                @if (Route::has('register'))
-                                <x-text :href="route('register')" value="Create an Account!" class="mb-3 text-center" />
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+            @if (Route::has('register'))
+            <x-text :href="route('register')" value="Create an Account!" class="mb-3 text-center" />
+            @endif
+        </x-view>
+    </x-view>
+</x-view>
 @endsection
