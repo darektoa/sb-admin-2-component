@@ -4,7 +4,7 @@ namespace App\View\Components\Sidebar;
 
 use Illuminate\View\Component;
 
-class NavCollapseItem extends Component
+class CollapseItem extends Component
 {
     public $active;
     public $icon;
@@ -23,7 +23,7 @@ class NavCollapseItem extends Component
 
     public function render()
     {
-        return view('components.sidebar.nav-collapse-item');
+        return view('components.sidebar.collapse-item');
     }
 
 
