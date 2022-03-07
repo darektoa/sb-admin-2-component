@@ -6,7 +6,7 @@
     ];
 @endphp
 
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+<x-sidebar.sidebar theme="dark">
     <x-sidebar.brand 
       img="{{ asset('assets/img/brand.png') }}"
       name="REXENSOFT"
@@ -29,4 +29,4 @@
     <x-sidebar.divider mb="4"/>
     
     <x-sidebar.toggle/> 
-  </ul>
+  </x-sidebar.sidebar>
