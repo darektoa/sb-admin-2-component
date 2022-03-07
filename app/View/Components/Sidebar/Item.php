@@ -4,7 +4,7 @@ namespace App\View\Components\Sidebar;
 
 use Illuminate\View\Component;
 
-class NavItem extends Component
+class Item extends Component
 {
     public $active;
     public $icon;
@@ -23,7 +23,7 @@ class NavItem extends Component
 
     public function render()
     {
-        return view('components.sidebar.nav-item');
+        return view('components.sidebar.item');
     }
 
 
