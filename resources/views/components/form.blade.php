@@ -12,8 +12,10 @@
 @endphp
 
 <form  action="{{ $action }}" method="{{ $method }}" {{ $attributes }}>
-    @if(!$isGet) @method($method) @endif
-    @csrf
+    @if(!$isGet) 
+        @method($method) 
+        @csrf
+    @endif
 
     {{ $slot }}
 </form>
