@@ -11,7 +11,7 @@
     );
 @endphp
 
-<form  action="{{ $action }}" method="{{ $method }}" {{ $attributes }}>
+<form action="{{ $action }}" method="{{ $method }}" enctype="multipart/form-data" {{ $attributes }}>
     @if(!$isGet) 
         @method($method) 
         @csrf
