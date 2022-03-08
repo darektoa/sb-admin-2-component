@@ -27,6 +27,6 @@ class AuthController extends Controller
             ->withErrors(["Account doesn't match"])
             ->withInput();
 
-        return view('layouts.app');
+        return redirect()->route('dashboard');
     }
 }
