@@ -32,7 +32,7 @@
                 <x-input type="email" name="email" placeholder="Email" value="{{ old('email') }}" class="form-control-user mb-3" required />
                 <x-input type="password" name="password" placeholder="Password" class="form-control-user mb-3" required />
                 <x-input type="checkbox" name="remember" label="Remember Me" class="mb-3" />
-                <x-button.submit block value="Login" class="btn-primary btn-user"/>
+                <x-button type="submit" block value="Login" class="btn-primary btn-user"/>
             </x-form>
 
             @if(Route::has('password.request'))
