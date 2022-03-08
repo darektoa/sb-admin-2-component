@@ -37,10 +37,16 @@
     
     $first  = $data->first();
     $keys   = collect($first)->keys();
+
+    unset(
+        $attributes['data'],
+        $attributes['hidden'],
+        $attributes['visible'],
+    );
 @endphp
 
 <div class="table-responsive">
-    <table class="table table-hover">
+    <table class="table table-hover {{ $attributes['class'] }}" {{ $attributes }}>
         <thead>
             <tr>
     
