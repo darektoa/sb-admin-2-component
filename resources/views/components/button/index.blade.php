@@ -6,9 +6,11 @@
     $color      = $attributes['color'] ?? 'primary';
     $value      = $attributes['value'];
     $outline    = $attributes['outline'];
+    $type       = $attributes['type'] ?? 'button';
     $wrapper    = new ComponentAttributeBag();
     
     $attributes['class'] = "btn $class";
+    $attributes['type']  = $type;
 
     if(!$outline) $attributes['class'] .= " btn-$color";
     if($outline) $attributes['class']  .= " btn-outline-$color";
@@ -22,7 +24,7 @@
 @endphp
 
 <div {{ $wrapper }}>
-    <button type="submit" {{ $attributes }}>
+    <button {{ $attributes }}>
         {{ $value }}
     </button>
 </div>
