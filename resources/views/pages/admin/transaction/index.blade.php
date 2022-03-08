@@ -5,7 +5,7 @@
             <x-text bold color="primary" value="Transactions" />
             <x-form method="GET" class="ms-auto d-none d-md-flex">
                 <x-input name="search" placeholder="Search..." value="{{ request()->search ?? '' }}" class="me-2"/>
-                <x-button.submit outline value="Search" />
+                <x-button outline type="submit" value="Search" />
             </x-form>
         </x-card.head>
         <x-card.body>
