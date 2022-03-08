@@ -25,6 +25,10 @@
 
 <div {{ $wrapper }}>
     <button {{ $attributes }}>
-        {{ $value }}
+
+        @if($slot->isNotEmpty()) {{ $slot }}
+        @else {{ $value }}
+        @endif
+
     </button>
 </div>
