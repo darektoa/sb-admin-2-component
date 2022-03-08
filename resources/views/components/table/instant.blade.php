@@ -39,27 +39,29 @@
     $keys   = collect($first)->keys();
 @endphp
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-
-            @foreach($keys as $key)
-            <th>{{ Str::headline($visible[$key] ?? $key) }}</th>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+    
+                @foreach($keys as $key)
+                <th>{{ Str::headline($visible[$key] ?? $key) }}</th>
+                @endforeach
+    
+            </tr>
+        </thead>
+        <tbody>
+            
+            @foreach ($data as $item)
+            <tr>
+    
+                @foreach(collect($item)->keys() as $key)
+                <td class="align-middle h6">{{ $item->$key }}</td>
+                @endforeach
+            
+            </tr>
             @endforeach
-
-        </tr>
-    </thead>
-    <tbody>
-        
-        @foreach ($data as $item)
-        <tr>
-
-            @foreach(collect($item)->keys() as $key)
-            <td class="align-middle h6">{{ $item->$key }}</td>
-            @endforeach
-        
-        </tr>
-        @endforeach
-
-    </tbody>
-</table>
+    
+        </tbody>
+    </table>
+</div>
