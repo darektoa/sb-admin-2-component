@@ -1,7 +1,6 @@
 @php
     $method = strtoupper($method);
     $isGet  = $method === 'GET';
-    $method = $isGet ? 'GET' : 'POST';
     $inline = $attributes['inline'];
 
     if($inline) $attributes['class'] .= ' form-inline';
@@ -11,7 +10,7 @@
     );
 @endphp
 
-<form action="{{ $action }}" method="{{ $method }}" enctype="multipart/form-data" {{ $attributes }}>
+<form action="{{ $action }}" method="{{ $isGet ? 'GET' : 'POST' }}" enctype="multipart/form-data" {{ $attributes }}>
     @if(!$isGet) 
         @method($method) 
         @csrf
