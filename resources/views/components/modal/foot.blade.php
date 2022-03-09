@@ -1,6 +1,7 @@
 @php
     $class = $attributes['class'];
     $cross = $attributes['cross'];
+    $value = $attributes['value'];
     $main  = $attributes['main'];
 
     $attributes['class']             = "modal-footer $class";
@@ -10,9 +11,14 @@
     unset(
         $attributes['main'],
         $attributes['cross'],
+        $attributes['value'],
     );
 @endphp
 
 <div class="{{ $attributes['class'] }}" {{ $attributes }}>
-   {{ $slot }}
+
+   @if ($slot->isNotEmpty()){{ $slot }}
+   @else {{ $value }}
+   @endif
+
 </div>
