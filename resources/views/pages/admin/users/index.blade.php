@@ -3,12 +3,20 @@
     <x-card class="mb-4">
         <x-card.head>
             <x-text bold color="primary" value="Users" />
+            <x-button.modal class="ms-3" target="modalAddUser" value="Add User"/>
             <x-form method="GET" class="ms-auto d-none d-md-flex">
                 <x-input name="search" placeholder="Search..." value="{{ request()->search ?? '' }}" class="me-2"/>
                 <x-button outline type="submit" value="Search" />
             </x-form>
         </x-card.head>
         <x-card.body class="table-responsive">
+            <x-modal id="modalAddUser" title="Add User" :action="route('users.store')">
+                <x-modal.body>
+                    <x-input type="text" name="name" label="Name:" class="mb-3" />
+                    <x-input type="text" name="email" label="Email:" class="mb-3" />
+                    <x-input value="password" label="Default Password:" class="mb-3" readonly />
+                </x-modal.body>
+            </x-modal>
 
             <table class="table table-hover">
                 <thead>
