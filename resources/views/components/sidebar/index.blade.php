@@ -25,6 +25,12 @@
       icon="fa-clipboard-list"
       name="Transactions"
       :routes="$transactionNav" />  
+    
+    <x-sidebar.item
+      active="{{ Request::is('users') }}"
+      icon="fa-users"
+      name="Users"
+      :route="url('/users')" />  
   
     <x-sidebar.divider mb="4"/>
     
