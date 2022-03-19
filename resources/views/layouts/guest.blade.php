@@ -26,5 +26,6 @@
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
     @yield('scripts')
+    @stack('scripts')
   </body>
 </html>
