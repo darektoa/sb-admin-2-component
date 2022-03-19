@@ -9,6 +9,7 @@
     $outline    = $attr['outline'];
     $type       = $attr['type'] ?? 'button';
     $action     = $attr['action'];
+    $method     = $attr['method'];
     $wrapper    = new ComponentAttributeBag();
     
     $attr['class'] = "btn $class";
@@ -20,6 +21,7 @@
 
     if($action) {
         $wrapper['action']  = $action;
+        $wrapper['method']  = $method;
         $attr['type']       = 'submit';
     }
 
@@ -30,6 +32,7 @@
         $attr['value'],
         $attr['outline'],
         $attr['action'],
+        $attr['method'],
     );
 @endphp
 
