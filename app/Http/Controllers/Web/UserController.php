@@ -40,6 +40,31 @@ class UserController extends Controller
     }
 
 
+    public function update(Request $request, $userId) {
+        try{
+            $this->validate($request, [
+                'name'  => 'nullable|min:2|max:50',
+                'email' => "nullable|email|unique:users,email,$userId",
+            ]);
+
+            $user = User::find($userId);
+
+            if(!$user) throw new Exception('User not found');
+
+            $user->update([
+                'name'  => $request->name ?? $user->name,
+                'email' => $request->email ?? $user->email,
+            ]);
+
+            Alert::success('Success', 'User updated successfully');
+        }catch(Exception $err) {
+            Alert::error('Failed', $err->getMessage());
+        }finally {
+            return back();
+        }
+    }
+
+
     public function destroy($userId) {
         try{
             $user = User::find($userId);
