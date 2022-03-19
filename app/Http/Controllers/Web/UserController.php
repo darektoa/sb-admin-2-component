@@ -12,7 +12,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class UserController extends Controller
 {
     public function index() {
-        $users = User::paginate(10);
+        $users = User::latest()->paginate(10);
         
         return view('pages.admin.users.index', compact('users'));
     }
