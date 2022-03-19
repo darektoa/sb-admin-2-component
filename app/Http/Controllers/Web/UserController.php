@@ -38,4 +38,21 @@ class UserController extends Controller
             return back();
         }
     }
+
+
+    public function destroy($userId) {
+        try{
+            $user = User::find($userId);
+
+            if(!$user) throw new Exception('User not found');
+
+            $user->delete();
+
+            Alert::success('Success', 'User deleted successfully');
+        }catch(Exception $err) {
+            Alert::error('Failed', $err->getMessage());
+        }finally {
+            return back();
+        }
+    }
 }
