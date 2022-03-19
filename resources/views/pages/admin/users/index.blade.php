@@ -40,8 +40,14 @@
                 <tbody>
 
                     @foreach($users as $user)
+                    @php
+                        $page    = $users->currentPage();
+                        $perPage = $users->perPage();
+                        $number  = $loop->iteration + $perPage * ($page-1);
+                    @endphp
+
                     <tr>
-                        <td class="align-middle">{{ $loop->iteration }}</td>
+                        <td class="align-middle">{{ $number }}</td>
                         <td class="align-middle">{{ $user->name }}</td>
                         <td class="align-middle">{{ $user->email }}</td>
                         <td class="align-middle">
