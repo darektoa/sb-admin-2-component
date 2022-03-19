@@ -10,11 +10,21 @@
             </x-form>
         </x-card.head>
         <x-card.body class="table-responsive">
+            
+            <!-- MODAL ADD USER -->
             <x-modal id="modalAddUser" title="Add User" :action="route('users.store')">
                 <x-modal.body>
                     <x-input type="text" name="name" label="Name:" class="mb-3" />
                     <x-input type="text" name="email" label="Email:" class="mb-3" />
                     <x-input value="password" label="Default Password:" class="mb-3" readonly />
+                </x-modal.body>
+            </x-modal>
+            
+            <!-- MODAL EDIT USER -->
+            <x-modal id="modalEditUser" title="Edit User" action=" " method="PUT">
+                <x-modal.body>
+                    <x-input type="text" name="name" label="Name:" class="mb-3" />
+                    <x-input type="text" name="email" label="Email:" class="mb-3" />
                 </x-modal.body>
             </x-modal>
 
@@ -35,9 +45,14 @@
                         <td class="align-middle">{{ $user->name }}</td>
                         <td class="align-middle">{{ $user->email }}</td>
                         <td class="align-middle">
-                            <x-button color="danger" :action="route('users.destroy', [$user->id])" method="DELETE">
-                                <i class="fas fa-trash"></i>
-                            </x-button>
+                            <x-view>
+                                <x-button color="danger" :action="route('users.destroy', [$user->id])" method="DELETE">
+                                    <i class="fas fa-trash"></i>
+                                </x-button>
+                                <x-button.modal color="warning" :data="$user" :action="route('users.update', [$user->id])" class="ms-1 text-white" target="modalEditUser">
+                                    <i class="fas fa-pencil"></i>
+                                </x-button.modal>
+                            </x-view>
                         </td>
                     </tr>
                     @endforeach
