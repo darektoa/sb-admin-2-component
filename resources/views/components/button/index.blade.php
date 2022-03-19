@@ -1,34 +1,48 @@
 @php
     use Illuminate\View\ComponentAttributeBag;
 
-    $class      = $attributes['class'];
-    $block      = $attributes['block'];
-    $color      = $attributes['color'] ?? 'primary';
-    $value      = $attributes['value'];
-    $outline    = $attributes['outline'];
-    $type       = $attributes['type'] ?? 'button';
+    $attr       = $attributes;
+    $class      = $attr['class'];
+    $block      = $attr['block'];
+    $color      = $attr['color'] ?? 'primary';
+    $value      = $attr['value'];
+    $outline    = $attr['outline'];
+    $type       = $attr['type'] ?? 'button';
+    $action     = $attr['action'];
     $wrapper    = new ComponentAttributeBag();
     
-    $attributes['class'] = "btn $class";
-    $attributes['type']  = $type;
-
-    if(!$outline) $attributes['class'] .= " btn-$color";
-    if($outline) $attributes['class']  .= " btn-outline-$color";
+    $attr['class'] = "btn $class";
+    $attr['type']  = $type;
+    
+    if(!$outline) $attr['class'] .= " btn-$color";
+    if($outline) $attr['class']  .= " btn-outline-$color";
     if($block) $wrapper['class']        = "d-grid";
 
+    if($action) {
+        $wrapper['action']  = $action;
+        $attr['type']       = 'submit';
+    }
+
+    $attributes = $wrapper;
+
     unset(
-        $attributes['color'],
-        $attributes['value'],
-        $attributes['outline'],
+        $attr['color'],
+        $attr['value'],
+        $attr['outline'],
+        $attr['action'],
     );
 @endphp
 
-<div {{ $wrapper }}>
-    <button {{ $attributes }}>
-
-        @if($slot->isNotEmpty()) {{ $slot }}
-        @else {{ $value }}
-        @endif
-
-    </button>
-</div>
+@if($action)
+    <x-form {{ $attributes }}>
+        <button {{ $attr }}>
+            {{ $slot->isNotEmpty() ? $slot : $value }}
+        </button>
+    </x-form>
+@else
+    <div {{ $attributes }}>
+        <button {{ $attr }}>
+            {{ $slot->isNotEmpty() ? $slot : $value }}
+        </button>
+    </div>
+@endif
