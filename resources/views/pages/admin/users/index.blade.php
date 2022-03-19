@@ -35,7 +35,7 @@
                         <td class="align-middle">{{ $user->name }}</td>
                         <td class="align-middle">{{ $user->email }}</td>
                         <td class="align-middle">
-                            <x-button color="danger">
+                            <x-button color="danger" :action="route('users.destroy', [$user->id])" method="DELETE">
                                 <i class="fas fa-trash"></i>
                             </x-button>
                         </td>
