@@ -8,7 +8,7 @@
 <h1 align="center"><b>SB Admin 2 Laravel Component</b></h1>
 
 
-## About Laravel
+## About
 
 sb admin 2 component is based on the free version of sb admin 2 template, now we convert the template into laravel and make it a component!
 
