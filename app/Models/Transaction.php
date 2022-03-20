@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\RandomHelper;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -26,6 +27,16 @@ class Transaction extends Model
         2 => 'Buying',
         3 => 'Refund',
     ];
+
+
+    static protected function boot() {
+        parent::creating(function($data) {
+            if(!$data->code)
+                $data->code = 'INV'.strtoupper(RandomHelper::code());
+        });
+
+        parent::boot();
+    }
 
 
     public function sender() {
