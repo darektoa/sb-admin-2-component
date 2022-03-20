@@ -12,8 +12,12 @@ class TransactionController extends Controller
 {
     public function index(Request $request) {
         $type         = $request->type;
-        $transactions = Transaction::latest()
-            ->paginate(10);
+        $transactions = Transaction::latest();
+
+        if($type)
+            $transactions = $transactions->where('type', $type);
+
+        $transactions = $transactions->paginate(10);
 
         return view('pages.admin.transaction.index', compact('transactions'));
     }
