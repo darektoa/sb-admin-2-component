@@ -38,6 +38,19 @@ class Transaction extends Model
     }
 
 
+    protected function statusName(): Attribute{
+        $get = function() {
+            $status      = $this->status;
+            $statusNames = collect($this->status_names);
+            $statusName  = $statusNames->first(fn($_, $key) => $key === $status);
+
+            return $statusName ?? 'Unknown';
+        };
+
+        return Attribute::make($get);
+    }
+
+
     protected function typeName(): Attribute{
         $get = function() {
             $type      = $this->type;
