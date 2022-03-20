@@ -10,6 +10,8 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    protected $appends = ['type_name'];
+
     protected $guarded = ['id'];
 
     public $type_names = [
