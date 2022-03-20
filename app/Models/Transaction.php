@@ -10,7 +10,7 @@ class Transaction extends Model
 {
     use HasFactory;
 
-    protected $appends   = ['type_name'];
+    protected $appends   = ['status_name', 'type_name'];
 
     protected $guarded   = ['id'];
 
