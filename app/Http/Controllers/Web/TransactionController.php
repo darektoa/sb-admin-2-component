@@ -12,10 +12,13 @@ class TransactionController extends Controller
 {
     public function index(Request $request) {
         $type         = $request->type;
+        $search       = $request->search;
         $transactions = Transaction::latest();
 
         if($type)
             $transactions = $transactions->where('type', $type);
+        if($search)
+            $transactions = $transactions->search($search);
 
         $transactions = $transactions->paginate(10);
 
