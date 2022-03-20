@@ -20,7 +20,7 @@ class TransactionFactory extends Factory
             'receiver_id'   => $receiver->id,
             'code'          => "INV$code",
             'amount'        => $amount,
-            'type'          => 1,
+            'type'          => rand(1, 3),
         ];
     }
 }
