@@ -11,8 +11,13 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
-    public function index() {
-        $users = User::latest()->paginate(10);
+    public function index(Request $request) {
+        $search = $request->search; 
+        $users  = User::latest();
+
+        if($search) $users = $users->search($search);
+
+        $users  = $users->paginate(10);
         
         return view('pages.admin.users.index', compact('users'));
     }
