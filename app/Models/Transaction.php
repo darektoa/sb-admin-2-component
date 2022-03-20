@@ -27,4 +27,17 @@ class Transaction extends Model
     public function receiver() {
         return $this->belongsTo(User::class);
     }
+
+
+    protected function typeName(): Attribute{
+        $get = function() {
+            $type      = $this->type;
+            $typeNames = collect($this->type_names);
+            $typeName  = $typeNames->first(fn($_, $key) => $key === $type);
+
+            return $typeName ?? 'Unknown';
+        };
+
+        return Attribute::make($get);
+    }
 }
