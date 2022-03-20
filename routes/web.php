@@ -15,7 +15,10 @@ Route::middleware('auth')->group(function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // TRANSACTION
-    Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
+    Route::prefix('/transactions')->name('transactions.')->group(function() {
+        Route::get('/', [TransactionController::class, 'index'])->name('index');
+        Route::post('/topup', [TransactionController::class, 'topup'])->name('topup');
+    });
 
     // USER
     Route::prefix('/users')->name('users.')->group(function() {
