@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use Exception;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TransactionController extends Controller
 {
@@ -14,5 +16,27 @@ class TransactionController extends Controller
             ->paginate(10);
 
         return view('pages.admin.transaction.index', compact('transactions'));
+    }
+
+
+    public function topup(Request $request) {
+        try{
+            $this->validate($request, [
+                'amount'    => 'required|numeric|digits_between:1,18',
+            ]);
+
+            Transaction::create([
+                'receiver_id'   => auth()->id(),
+                'amount'        => $request->amount,
+                'type'          => 1,
+                'status'        => 1,
+            ]);
+
+            Alert::success('Success', 'Topup created successfully');
+        }catch(Exception $err) {
+            Alert::error('Failed', $err->getMessage());
+        }finally {
+            return back();
+        }
     }
 }
