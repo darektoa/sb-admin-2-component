@@ -10,11 +10,18 @@ class Transaction extends Model
 {
     use HasFactory;
 
-    protected $appends = ['type_name'];
+    protected $appends   = ['type_name'];
 
-    protected $guarded = ['id'];
+    protected $guarded   = ['id'];
 
-    public $type_names = [
+    public $status_names = [
+        1 => 'Pending',
+        2 => 'Paid',
+        3 => 'Failed',
+        4 => 'Expired'
+    ];
+
+    public $type_names   = [
         1 => 'Topup',
         2 => 'Buying',
         3 => 'Refund',
