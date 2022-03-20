@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use App\Helpers\RandomHelper;
+use App\Traits\Models\Searchable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $appends   = ['status_name', 'type_name'];
 
