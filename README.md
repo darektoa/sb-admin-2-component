@@ -30,6 +30,11 @@ sb admin 2 component is based on the free version of sb admin 2 template, now we
 - Open http://127.0.0.1:8000/ in your browser.
 - Voila! your project is ready to use
 
+## Demo Account
+| Email | Password |
+| :---  |   :---   |
+| user@example.com | password |
+
 ## License
 
 The SB Admin 2 Laravel Component is open-sourced template licensed under the [MIT license](https://opensource.org/licenses/MIT).
