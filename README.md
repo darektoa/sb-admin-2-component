@@ -17,6 +17,8 @@ sb admin 2 component is based on the free version of sb admin 2 template, now we
 - Change directory you want
 - Type `git clone --branch main https://github.com/rexencorp/sb-admin-2-component` in terminal
 - After that, type `cd sb-admin-2-component` to enter the `sb-admin-2-component` directory
+- Type `composer install` in terminal
+- After that, type `npm install` in terminal 
 
 ## How to Run
 - Create a database with the name `sb_admin2_component` (you can change the database name)
