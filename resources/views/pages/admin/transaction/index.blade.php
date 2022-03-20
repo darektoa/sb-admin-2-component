@@ -20,7 +20,7 @@
 
             <x-table.instant 
                 :data="$transactions->items()"
-                hidden="updated_at"
+                hidden="status|type|updated_at"
                 visible="created_at:created on" />
 
             {{ $transactions->links() }}
