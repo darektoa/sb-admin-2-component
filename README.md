@@ -1,4 +1,4 @@
-<p align="center"><a href="" target="_blank"><img src="./public/assets/img/screenshot.png" width="400"></a></p>
+<p align="center"><kbd><a href="./public/assets/img/screenshot.png" target="_blank"><img src="./public/assets/img/screenshot.png" width="400"></a></kbd></p>
 
 <p align="center">
     <a href="https://laravel.com/docs/9.x"><img src="https://img.shields.io/badge/v9.2-Laravel-F9322C" alt="Laravel"></a>
