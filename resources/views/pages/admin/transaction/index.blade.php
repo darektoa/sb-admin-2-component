@@ -19,6 +19,7 @@
             </x-modal>
 
             <x-table.instant 
+                style="min-height: 400px"
                 :data="$transactions->items()"
                 hidden="status|type|updated_at"
                 visible="created_at:created on" />
